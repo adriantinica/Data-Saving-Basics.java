@@ -15,7 +15,8 @@ public class AppSavePersonalData{
     public static void main(String[] args) throws IOException {
         
         Scanner in = new Scanner(System.in);
-
+        
+       
         System.out.println("Please, introduce your data below !!!");
         System.out.print("What's your firstname?: ");
         String firstName = in.next();
@@ -26,30 +27,26 @@ public class AppSavePersonalData{
         System.out.print("What's is your rating?: ");
         Double rating = in.nextDouble();
         String ratingString = Double.toString(rating);
-        System.out.print("Do you want to save your data? YES/NO: ");
-        String consent = in.next();
+      
         
-        // greating the user;
-        System.out.println(" Hello " + firstName +" "+ lastName +" !!!" );
-        
+       
         // prepare the file: 
 
         File file = new File("name.text");
-        if (file.exists() && consent.equals("YES")) {
+        
+
+
+        if (file.exists() ) {
             System.out.println( " > file found ");
-            System.out.println("Your DATA will be keeped !!!");
-            FileWriter fw = new FileWriter(file);
-             
-            //put the data's/write into file:
-            fw.write(firstName + " ");  
-            fw.write(lastName + " ");
-            fw.write(age + " ");
-            fw.write(ratingString);
-            fw.flush();
-            fw.close();
+            Scanner readData = new Scanner(file);
+            String readfirstName = readData.next();
+            if (firstName.equals(readfirstName)){
+            System.out.println("I know you : " + readfirstName +" "+ readData.next());
+            }
            
         } else  {
-            
+            System.out.print("Do you want to save your data? YES/NO: ");
+            String consent = in.next();
             
             if (consent.equals("YES")) {
                 System.out.println( " > file is not found ");
@@ -62,14 +59,14 @@ public class AppSavePersonalData{
                 fw.write(lastName + " ");
                 fw.write(age + " ");
                 fw.write(ratingString);
-                fw.flush();
                 fw.close();
+                System.out.println("Your DATA will be keeped !!!");
         
 
             } else if (consent.equals("NO")) {
-                file.delete();
                 System.out.println("The file with your data was deleted");
-
+                file.delete();
+                
             }
         }
 

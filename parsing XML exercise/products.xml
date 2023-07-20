@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--my comment-->
+<products>
+    <product>
+        <name>Pizza</name>
+        <price>
+            <amount>100</amount>
+            <currency>MDL</currency>
+        </price>
+    </product>
+    <product>
+        <name>Salad</name>
+        <price>
+            <amount>50</amount>
+            <currency>MDL</currency>
+        </price>
+    </product>
+</products>

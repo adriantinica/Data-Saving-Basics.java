@@ -5,9 +5,9 @@ public class Product {
     private Element productName;
     private Element productPrice;
     
-    public Product(Element productName2, Element productPrice2) {
-        this.productName = productName2;
-        this.productPrice =productPrice2;
+    public Product(Element productName, Element productPrice) {
+        this.productName = productName;
+        this.productPrice =productPrice;
     }
 
     public Element getProductName() {
@@ -28,8 +28,10 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product [productName=" + productName + ", productPrice=" + productPrice + "]";
+        return "Product [productName=" + productName.getTextContent().trim() + ", productPrice=" + productPrice.getTextContent().trim() +  "]";
     }
+
+
 
 
     

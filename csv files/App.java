@@ -3,6 +3,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class App {
 
@@ -17,24 +19,37 @@ public class App {
         fw.write("Salad,25  \n");
         fw.write("Soup,40  \n");
         fw.write("Pizza,100  \n");
+        fw.write("Ice cream,15  ");
+        
         fw.flush();
-        fw.close();
-
+        
         
 
         FileReader fr = new FileReader(file);
         BufferedReader br = new BufferedReader(fr);
 
-        String line = br.readLine();  
-        String [] cols = line.trim().split(",");
-         
 
-        for (String col : cols) {
-            System.out.println(col);
+        List<Product> products = new ArrayList<>();
+
+        while (true) {
+            String line = br.readLine();  
+            if(line == null)break;
+            String [] cols = line.trim().split(",");
+            String productName = cols[0];
+            int productPrice = Integer.parseInt(cols[1]);
+            products.add(new Product(productName, productPrice));
+        }
+        
+        for (Product product : products) {
+            System.out.println(product);
         }
 
-        String productName = cols[0];
-        int productPrice = Integer.parseInt(cols[1]);
+        
+        //for (String col : cols) {
+        //    System.out.println(col);
+        //}
+
+        
         
 
         //HW1: Diff between .parseInt() and valueOf() methods;
@@ -52,9 +67,7 @@ public class App {
         
         //output using toString;
 
-        Product product1 = new Product(productName, productPrice);
-        System.out.println(product1);
-
+       
 
 
 

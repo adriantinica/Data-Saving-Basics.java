@@ -41,7 +41,7 @@ public class App {
         //HW1: Extract the price for first product....
 
         Element productPrice = (Element) firstProduct.getElementsByTagName("price").item(0);
-        System.out.println(productPrice.getTextContent().trim());
+        //System.out.println(productPrice.getTextContent().trim());
 
         Element priceAmount  = (Element) firstProduct.getElementsByTagName("amount").item(0);
         Element priceCurrency = (Element) firstProduct.getElementsByTagName("currency").item(0);

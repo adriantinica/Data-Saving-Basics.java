@@ -1,37 +1,35 @@
-import org.w3c.dom.Element;
-
 public class Product {
 
-    private Element productName;
-    private Element productPrice;
-    
-    public Product(Element productName, Element productPrice) {
-        this.productName = productName;
-        this.productPrice =productPrice;
+    private String name;
+    private Money price;
+
+    public Product(String name, Money price) {
+        this.name = name;
+        this.price = price;
     }
 
-    public Element getProductName() {
-        return productName;
+    public String getName() {
+        return name;
     }
 
-    public void setProductName(Element productName) {
-        this.productName = productName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Element getProductPrice() {
-        return productPrice;
+    public Money getPrice() {
+        return price;
     }
 
-    public void setProductPrice(Element productPrice) {
-        this.productPrice = productPrice;
+    public void setPrice(Money price) {
+        this.price = price;
     }
 
     @Override
     public String toString() {
-        return "Product [productName=" + productName.getTextContent().trim() + ", productPrice=" + productPrice.getTextContent().trim() +  "]";
+        return "Product [name=" + name + ", price=" + price + "]";
     }
 
-
+    
 
 
     

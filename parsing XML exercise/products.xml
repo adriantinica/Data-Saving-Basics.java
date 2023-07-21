@@ -15,4 +15,11 @@
             <currency>MDL</currency>
         </price>
     </product>
+    <product>
+        <name>Juice</name>
+        <price>
+            <amount>25</amount>
+            <currency>MDL</currency>
+        </price>
+    </product>
 </products>

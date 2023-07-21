@@ -3,6 +3,9 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -15,7 +18,7 @@ public class App {
         
         File file = new File("products.xml");
         System.out.println(file.getAbsolutePath());
-
+        List <Product> productsList = new ArrayList<>(4);
 
         // DOM Parser/ + Factory & Builder & Singleton patterns
 
@@ -29,28 +32,37 @@ public class App {
         System.out.println();
 
         Element root = document.getDocumentElement();
-        NodeList products = root.getElementsByTagName("product");
-        Element firstProduct = (Element)products.item(0);
-        Element productName = (Element) firstProduct.getElementsByTagName("name").item(0);
+        //NodeList products = root.getElementsByTagName("product");
+        //Element firstProduct = (Element)products.item(i);
+        //Element productName = (Element) firstProduct.getElementsByTagName("name").item(i);
 
         // ##############################################################################################################
 
 
-        System.out.println(productName.getTextContent().trim());
-
+        //System.out.println(productName.getTextContent().trim());
+        NodeList products = root.getElementsByTagName("product");
         //HW1: Extract the price for first product....
+        for (int i = 0; i <  products.getLength(); i++ ) {
+            
+            Element product= (Element)products.item(i);
+            Element productName = (Element) product.getElementsByTagName("name").item(0);
+           
+            Element productPrice = (Element) product.getElementsByTagName("price").item(0);
+        
+            Element priceAmount  = (Element) productPrice.getElementsByTagName("amount").item(0);
+            Element priceCurrency = (Element) productPrice.getElementsByTagName("currency").item(0);
 
-        Element productPrice = (Element) firstProduct.getElementsByTagName("price").item(0);
-        //System.out.println(productPrice.getTextContent().trim());
+            String name = productName.getTextContent().trim();
+            int amount = Integer.parseInt(priceAmount.getTextContent().trim());
+            String currency = priceCurrency.getTextContent().trim();
 
-        Element priceAmount  = (Element) firstProduct.getElementsByTagName("amount").item(0);
-        Element priceCurrency = (Element) firstProduct.getElementsByTagName("currency").item(0);
+            productsList.add(new Product(name, new Money(amount, currency)));
+            System.out.println(productsList.get(i));
 
-        System.out.println(priceAmount.getTextContent().trim() );
-        System.out.println(priceCurrency.getTextContent().trim() );
 
-        Product product1 = new Product(productName, productPrice );
-        System.out.println(product1);
+            
+            
+        }
 
         
 

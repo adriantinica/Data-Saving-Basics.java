@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<products>
+    <product>
+        <name>Salad</name>
+        <price>
+            <amount>100</amount>
+            <currency>MDL</currency>
+        </price>
+    </product>
+    <product>
+        <name>Calzone</name>
+        <price>
+            <amount>50</amount>
+            <currency>MDL</currency>
+        </price>
+    </product>
+    <product>
+        <name>Juice</name>
+        <price>
+            <amount>15</amount>
+            <currency>MDL</currency>
+        </price>
+    </product>
+</products>
